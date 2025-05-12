@@ -1,0 +1,281 @@
+/* Employees Component Styles */
+
+.employee-list-container {
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-section .search-box {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.filter-section .search-box input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.department-filter select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  min-width: 180px;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+}
+
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-table th {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.employee-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.employee-table tr:last-child td {
+  border-bottom: none;
+}
+
+.employee-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.employee-table a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.employee-table a:hover {
+  text-decoration: underline;
+}
+
+.actions-cell {
+  white-space: nowrap;
+  display: flex;
+  gap: 5px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+/* Employee Detail Styles */
+.employee-detail {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.employee-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.employee-detail-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.employee-detail-block {
+  margin-bottom: 20px;
+}
+
+.employee-detail-block h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.employee-detail-field {
+  margin-bottom: 10px;
+}
+
+.employee-detail-label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.employee-detail-value {
+  color: #333;
+}
+
+.enrollments-section {
+  margin-top: 30px;
+}
+
+.enrollments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.enrollments-header h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.enrollment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.enrollment-card {
+  background: #f9f9f9;
+  border-radius: 6px;
+  border-left: 4px solid var(--secondary-color);
+  padding: 15px;
+}
+
+.enrollment-program {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.enrollment-date, .enrollment-status {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.enrollment-status span {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.status-enrolled {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.status-in-progress {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.status-completed {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+.status-dropped {
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+/* Employee Form Styles */
+.employee-form {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+  }
+  
+  .filter-section .search-box {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .employee-detail-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .enrollment-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .page-header .btn {
+    margin-top: 10px;
+  }
+}
