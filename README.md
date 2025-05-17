@@ -142,6 +142,4 @@ This project implements AOP for cross-cutting concerns:
 - **Performance Monitoring**: Tracks execution time of methods
 - **Exception Handling**: Centralized exception logging
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
