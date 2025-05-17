@@ -3,36 +3,41 @@
 ## 1. Training Program Creation Activity Diagram
 
 ```
-@startuml Training Program Creation
+@startuml Training_Program_Creation
 
 start
+
 :Administrator logs in;
 :Navigate to Training Programs section;
 :Click "Create New Program" button;
 :System displays training program form;
-:Enter program details (name, description, 
- category, duration, objectives);
+:Enter program details (name, description, category, duration, objectives);
 :Click "Save" button;
+
 if (Input validation passes?) then (yes)
   :System saves program details;
   :System displays success message;
 else (no)
   :System displays validation errors;
   :Fix validation errors;
-  backward:Click "Save" button;
+  :Click "Save" button;
+  -[#blue]-> if (Input validation passes?);
 endif
+
 :View created training program;
 stop
 
 @enduml
+
 ```
 
 ## 2. Employee Enrollment Activity Diagram
 
 ```
-@startuml Employee Enrollment
+@startuml Enroll_Employee_In_Training
 
 start
+
 :Administrator/Trainer logs in;
 :Navigate to Employees section;
 :Search for and select employee;
@@ -42,6 +47,7 @@ start
 :Select a training program;
 :Set enrollment details (status, enrollment date);
 :Click "Save Enrollment" button;
+
 if (Validation passes?) then (yes)
   if (Employee already enrolled in program?) then (yes)
     :System displays error message;
@@ -53,50 +59,61 @@ if (Validation passes?) then (yes)
 else (no)
   :System displays validation errors;
   :Fix validation errors;
-  backward:Click "Save Enrollment" button;
+  -> [back] Click "Save Enrollment" button;
 endif
+
 :View updated enrollment list;
 stop
 
 @enduml
+
 ```
 
 ## 3. Attendance Recording Activity Diagram
 
 ```
-@startuml Attendance Recording
+@startuml Attendance_Recording
 
 start
+
 :Trainer logs in;
 :Navigate to Training Sessions section;
 :Select an active training session;
 :Click "Record Attendance" button;
 :System displays list of enrolled employees;
-:For each employee;
+
+repeat
+  :Select employee;
   :Mark attendance status (Present/Absent/Late);
   :Add comments if necessary;
-:End for each;
+repeat while (More employees?)
+
 :Click "Save Attendance" button;
+
 if (Validation passes?) then (yes)
   :System saves attendance records;
   :System displays success message;
 else (no)
   :System displays validation errors;
   :Fix validation errors;
-  backward:Click "Save Attendance" button;
+  -> [back] Click "Save Attendance" button;
 endif
+
 :View attendance record summary;
+
 stop
 
 @enduml
+
 ```
 
 ## 4. Program Completion Activity Diagram
 
 ```
-@startuml Program Completion
+@startuml Program_Completion
 
 start
+
 :Trainer logs in;
 :Navigate to Training Programs section;
 :Select a program;
@@ -107,53 +124,64 @@ start
 :Set completion details (status, completion date, score);
 :Add completion comments;
 :Click "Save Completion" button;
+
 if (Validation passes?) then (yes)
   :System saves completion record;
   :System displays success message;
 else (no)
   :System displays validation errors;
   :Fix validation errors;
-  backward:Click "Save Completion" button;
+  -> [back] Click "Save Completion" button;
 endif
+
 :View updated completion records;
+
 stop
 
 @enduml
+
 ```
 
 ## 5. Feedback Submission Activity Diagram
 
 ```
-@startuml Feedback Submission
+@startuml Feedback_Submission
 
 start
+
 :User (Employee/Trainer) logs in;
-if (User type?) then (Employee)
+
+if (Is Employee?) then (yes)
   :Navigate to Programs section;
   :Select a completed program;
   :Click "Provide Feedback" button;
   :System displays program feedback form;
-else (Trainer)
+else (no)
   :Navigate to Employees section;
   :Select an employee;
   :Click "Provide Feedback" button;
   :System displays employee performance feedback form;
 endif
+
 :Set feedback rating;
 :Enter feedback comments;
 :Click "Submit Feedback" button;
+
 if (Validation passes?) then (yes)
   :System saves feedback record;
   :System displays success message;
 else (no)
   :System displays validation errors;
   :Fix validation errors;
-  backward:Click "Submit Feedback" button;
+  -> [back] Click "Submit Feedback" button;
 endif
+
 :View feedback summary;
+
 stop
 
 @enduml
+
 ```
 
 ## Description

@@ -116,20 +116,20 @@ const EmployeeList = () => {
                     <td>{employee.department}</td>
                     <td>{employee.position}</td>
                     <td className="actions-cell">
-                      <Link to={`/employees/${employee.id}`} className="btn btn-secondary btn-sm">
-                        <i className="fas fa-eye"></i>
+                      <Link to={`/employees/${employee.id}`} className="btn btn-secondary btn-sm text-white">
+                        <i className="fas fa-eye"></i>View
                       </Link>
-                      <Link to={`/employees/edit/${employee.id}`} className="btn btn-primary btn-sm">
-                        <i className="fas fa-edit"></i>
+                      <Link to={`/employees/edit/${employee.id}`} className="btn btn-primary btn-sm text-white">
+                        <i className="fas fa-edit "></i>Edit 
                       </Link>
                       <button
                         className="btn btn-danger btn-sm"
                         onClick={() => handleDelete(employee.id)}
                       >
-                        <i className="fas fa-trash"></i>
+                        <i className="fas fa-trash"></i>Delete
                       </button>
-                      <Link to={`/enrollments/new?employeeId=${employee.id}`} className="btn btn-success btn-sm">
-                        <i className="fas fa-user-plus"></i>
+                      <Link to={`/enrollments/new?employeeId=${employee.id}`} className="btn btn-success btn-sm text-white">
+                        <i className="fas fa-user-plus"></i>Enroll
                       </Link>
                     </td>
                   </tr>

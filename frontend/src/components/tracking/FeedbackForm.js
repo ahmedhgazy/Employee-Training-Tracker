@@ -28,7 +28,7 @@ const FeedbackForm = () => {
     rating: 0,
     comments: '',
     providedBy: 'Admin', // Default value, could be replaced with logged in user
-    feedbackDate: new Date().toISOString().slice(0, 10),
+    feedbackDate: new Date().toISOString().split('T')[0], // Just the date portion for the input field
     type: 'EMPLOYEE_TO_PROGRAM' // Default type
   };
 
@@ -88,8 +88,14 @@ const FeedbackForm = () => {
       // Include the rating from state
       values.rating = rating;
       
+      // Format the date as a LocalDateTime (add time component to the date)
+      const formattedValues = {
+        ...values,
+        feedbackDate: values.feedbackDate ? `${values.feedbackDate}T00:00:00` : null
+      };
+      
       // Record feedback
-      await trackingService.recordFeedback(values);
+      await trackingService.recordFeedback(formattedValues);
       
       setLoading(false);
       

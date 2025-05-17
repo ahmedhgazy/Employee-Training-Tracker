@@ -63,13 +63,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           
-          <li className="nav-header">Reports</li>
-          <li>
-            <NavLink to="/reports" className={({ isActive }) => isActive ? 'active' : ''}>
-              <i className="fas fa-chart-line"></i>
-              <span>Analytics</span>
-            </NavLink>
-          </li>
+         
         </ul>
       </nav>
     </div>

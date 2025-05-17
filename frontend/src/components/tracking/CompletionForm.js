@@ -24,7 +24,7 @@ const CompletionForm = () => {
     programId: '',
     employeeName: '',
     programName: '',
-    completionDate: new Date().toISOString().slice(0, 10),
+    completionDate: new Date().toISOString().split('T')[0], // Just the date portion for the input field
     score: 0,
     status: 'COMPLETE',
     certificateUrl: '',
@@ -113,10 +113,14 @@ const CompletionForm = () => {
       setLoading(true);
       setError(null);
       
-      // If not set already, get employee and program names
-      if (!values.employeeName || !values.programName) {
-        const employee = employees.find(e => e.id === parseInt(values.employeeId));
-        const program = programs.find(p => p.id === parseInt(values.programId));
+      // If this came from an enrollment, we need to set the employee and program
+      if (enrollment) {
+        values.employeeId = enrollment.employeeId;
+        values.programId = enrollment.programId;
+        
+        // Lookup names
+        const employee = employees.find(emp => emp.id === parseInt(enrollment.employeeId));
+        const program = programs.find(prog => prog.id === parseInt(enrollment.programId));
         
         if (employee) {
           values.employeeName = `${employee.firstName} ${employee.lastName}`;
@@ -127,8 +131,15 @@ const CompletionForm = () => {
         }
       }
       
+      // Format the date as a LocalDateTime (add time component to the date)
+      // This converts the date to the required format for the backend
+      const formattedValues = {
+        ...values,
+        completionDate: values.completionDate ? `${values.completionDate}T00:00:00` : null
+      };
+      
       // Record completion
-      await trackingService.recordCompletion(values);
+      await trackingService.recordCompletion(formattedValues);
       
       // If this completion came from an enrollment, update the enrollment status
       if (enrollmentId) {

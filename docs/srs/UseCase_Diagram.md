@@ -124,3 +124,62 @@ This Use Case Diagram illustrates the interactions between the system's three ma
 - Employees mainly consume information and provide feedback
 
 This diagram provides a high-level overview of system functionality and user roles, forming the foundation for further system design and development.
+<!-- 
+
+
+@startuml Training_Tracker_Use_Case_Diagram
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #FDF6E3
+  BorderColor #657b83
+  ArrowColor #268BD2
+}
+
+actor "Administrator" as Admin
+actor "Trainer" as Trainer
+actor "Employee" as Employee
+
+rectangle "Employee Training Tracker System" {
+
+  package "Training Program Management" {
+    usecase "Create Training Program" as UC1
+    usecase "Update Training Program" as UC2
+    usecase "View Training Program" as UC3
+    usecase "Delete Training Program" as UC4
+    usecase "Create Training Session" as UC5
+    usecase "Update Training Session" as UC6
+    usecase "View Training Session" as UC7
+    usecase "Delete Training Session" as UC8
+  }
+
+  package "Employee Management" {
+    usecase "Register Employee" as UC9
+    usecase "Update Employee Info" as UC10
+    usecase "View Employee Details" as UC11
+    usecase "Delete Employee" as UC12
+    usecase "Enroll Employee in Program" as UC13
+    usecase "View Enrollment Details" as UC14
+  }
+
+  package "Attendance Tracking" {
+    usecase "Record Attendance" as UC15
+    usecase "View Attendance Records" as UC16
+    usecase "Update Attendance Records" as UC17
+  }
+
+  package "Program Completion" {
+    usecase "Record Completion" as UC18
+    usecase "View Completion Records" as UC19
+    usecase "Generate Completion Reports" as UC20
+  }
+
+  package "Feedback Management" {
+    usecase "Provide Program Feedback" as UC21
+    usecase "Provide Performance Feedback" as UC22
+    usecase "View Feedback Records" as UC23
+  }
+}
+
+' Administrator Use Cases
