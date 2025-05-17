@@ -18,8 +18,7 @@ const EnrollmentList = () => {
     try {
       setLoading(true);
       
-      // This is a mock implementation as we don't have a direct API to get all enrollments
-      // In a real implementation, you would have an endpoint to get all enrollments
+      // Mock implementation of getAllEmployees
       const employeesResponse = await employeeService.getAllEmployees();
       
       let allEnrollments = [];

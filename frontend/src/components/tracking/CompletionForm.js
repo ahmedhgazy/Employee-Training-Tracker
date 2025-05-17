@@ -74,8 +74,7 @@ const CompletionForm = () => {
 
   const fetchEnrollmentDetails = async (id) => {
     try {
-      // This is a mock implementation since we don't have a direct API to get enrollment by ID
-      // In a real implementation, you would have an endpoint to get enrollment by ID
+      // Mock implementation of getEnrollmentsByEmployee
       const employeesResponse = await employeeService.getAllEmployees();
       
       for (const employee of employeesResponse.data) {
